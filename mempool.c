@@ -39,20 +39,20 @@ void *pool_alloc (pool *p, size_t size) {
 int main ()
 {
         pool *my_pool = pool_create (100);
-        pool *use1,*use2;
+        pool *use1,*use2,*use3,*use4;
 
         printf ("pool_available is %d\n\n",pool_available(my_pool));
 
         use1 = pool_alloc (my_pool, 30);
         printf ("pool_available is %d\n\n",pool_available(my_pool));
 
-        use1 = pool_alloc (my_pool, 30);
+        use2 = pool_alloc (my_pool, 30);
         printf ("pool_available is %d\n\n",pool_available(my_pool));
 
-        use1 = pool_alloc (my_pool, 30);
+        use3 = pool_alloc (my_pool, 30);
         printf ("pool_available is %d\n\n",pool_available(my_pool));
 
-        use1 = pool_alloc (my_pool, 50);
+        use4 = pool_alloc (my_pool, 50);
         printf ("pool_available is %d\n\n",pool_available(my_pool));
 
         return 0;
