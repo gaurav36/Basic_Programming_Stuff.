@@ -57,7 +57,6 @@ int main ()
         printf ("pool_available is %zu\n",pool_available(my_pool));
 	printf ("use3 pool starting address is %x\n\n",&use3->pool_next);
 
-
         use4 = pool_alloc (my_pool, 50);
         printf ("pool_available is %zu\n\n",pool_available(my_pool));
 
