@@ -1,0 +1,18 @@
+docker ps
+docker help
+docker run
+docker images
+docker build -t <image name> <Path of the Docker file>
+docker run -i -t <docker image>
+docker commit 34d2beeb72d7 atinm/gluster:v1
+docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs --no-run-if-empty docker rm
+
+
+Observation:
+===========
+Containers need to be run with --previleged=true to ensure setxattr works
+docker containers do not allow to edit /etc/hosts file. Docker mounts an
+/etc/hosts file inside it's containers, read-only, and the container's 'root'
+user has had it's mount permissions revoked so it's not able to be modified. 
+
+

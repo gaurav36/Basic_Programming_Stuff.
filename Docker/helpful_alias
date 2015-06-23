@@ -1,0 +1,38 @@
+Some helpful aliases:
+
+alias dip='docker inspect -f "{{ .NetworkSettings.IPAddress }}"'
+
+alias dimages='docker images'
+
+alias dbuild='docker build -t'
+
+alias dps='docker ps'
+
+alias drun='docker run -d'
+
+alias dips='for cont_id in $(dps -q); do printf "%s %s\n" $cont_id $(dip
+$cont_id);done'
+alias dstop='docker stop'
+
+alias drmi='docker rmi'
+
+alias drmc='docker rm'
+
+alias drmcall='docker ps -a | awk "{print $1}" | xargs docker rm'
+
+alias dstart='sudo service docker restart'
+
+alias dgluster='docker run -d --privileged=true -v
+/home/ggarg/codebase/PoCs/go_workdir:/home/go -v
+/home/ggarg/codebase/upstream/glusterfs_master/glusterfs:/home/glusterfs
+-v
+/home/ggarg/codebase/downstream/git_downstream/rhs-glusterfs:/home/rhs-glusterfs
+-v / home/ggarg/codebase/PoCs/go_workdir:/home/go_projects -e
+PATH=$PATH:"/home/go/bin" atinm/gluster:v1'
+alias dgluster1='docker run --net=host -d --privileged=true -v
+/home/ggarg/codebase/PoCs/go_workdir:/home/go -v
+/home/ggarg/codebase/upstream/glusterfs_master/glusterfs:/home/glusterfs
+-v
+/home/ggarg/codebase/downstream/git_downstream/rhs-glusterfs:/home/rhs-
+  glusterfs -v /home/ggarg/codebase/PoCs/go_workdir:/home/go_projects
+  -e PATH=$PATH:"/home/go/bin" atinm/gluster:v1'

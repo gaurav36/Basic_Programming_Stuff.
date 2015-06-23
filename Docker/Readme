@@ -1,0 +1,44 @@
+Palying with docker:
+
+* You should have makefusedev.sh, supervisord.conf, Dockerfile in Docker
+  directory.
+
+* You can use few docker alias which present in "helpful_alias" file
+  in your .bashrc file.
+
+* If you are using docker first time then you need to first pull docker image
+  by doing:
+ 
+  # docker build -t <image name> <Path of the Docker file>
+
+  for eg: 
+  <suppose i am in directory where docker file present>
+  execute:
+
+  # docker build -t <ggarg/***dev> .
+
+
+  after that docker image will be pulled from docker hub. you can see it
+  by executing
+
+  # docker images
+
+  for running docker execute
+
+  # docker run -i -t <docker image>
+
+  or you can use helpful_alias shortcut for running docker. if you have
+  paste all alias from helpful_alias then you can see ip address of all
+  running docker container by executing
+
+  # dips
+
+  Above command will give you list of all docker container ID with respective
+  ip address.
+
+  For login to that container do
+  ssh root@ip_address
+  and enter password is:  password
+
+
+

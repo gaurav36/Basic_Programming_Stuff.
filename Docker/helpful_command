@@ -1,0 +1,13 @@
+$ docker ps
+will display all running container
+
+$docker ps -l
+will display last run container
+
+$docker images
+will display list of all docker images
+
+$ docker commit c3f279d17e0a  svendowideit/testimage:version3
+will commit docker image (id: c3f279d17e0a).
+Repository name: svendowideit/testimage
+TAG: version3

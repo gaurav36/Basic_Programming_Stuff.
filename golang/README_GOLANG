@@ -1,0 +1,246 @@
+for directly running go programme type
+# go run file_name.go
+
+for building executable of go programme type
+# go build file_name.go
+
+for installing executable of go programme type
+# go install ./...   
+   ./... means include all the file inside, inside the directory.
+# go install file_name.go
+
+referance:
+go by example    https://gobyexample.com/
+
+----------------------------
+while reporting issue in golang do
+ggarg: Please indent the code, prefix it with "```go" and postfix it with ```
+-------------------------------------------------------------
+
+
+About GOROOT, GOPATH information:
+http://golang.org/doc/code.html
+
+More details about go concept:
+http://go-book.appspot.com/index.html
+
+----------------------------------------------------------------
+for installing latest go 1.5  binary:
+https://ma.ttias.be/install-go-1-5-on-centos-6-and-7/
+
+---------------------------------------------------------------------
+About runtime.GOMAXPROC or runtime.Gosched :
+http://stackoverflow.com/questions/13107958/what-exactly-does-runtime-gosched-do
+
+in short when you set GOMAXPROC to N; this means that os will create
+N native thread. All green thread (goroutine thread) will be executed
+by native thread.
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+About waitgroup for goroutine
+http://nathanleclaire.com/blog/2014/02/15/how-to-wait-for-all-goroutines-to-finish-executing-before-continuing/
+
+for more information about wait group look into example waitgroup.go
+
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+JSON (Java Script object Notation) beginner guide:
+
+http://www.copterlabs.com/blog/json-what-it-is-how-it-works-how-to-use-it/
+https://linuxprograms.wordpress.com/category/json-c/page/3/
+
+----------------------------------------------------------------------
+
+
+---------------------------------------------------------------------
+Prime number hack by Sieve of Eratosthenes:
+
+http://ignoringthevoices.blogspot.in/2012/10/playing-around-with-go-prime-numbers.html
+
+---------------------------------------------------------------------
+
+--------------------------------------------------------------------
+String comparision in go
+http://rosettacode.org/wiki/String_comparison#Go
+
+-------------------------------------------------------------------
+
+------------------------------------------------------------------
+Command execution (like system, exec in c) in golang
+
+https://golang.org/pkg/os/exec/#example_Cmd_Start
+--------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Command mistakes in golang
+
+http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+link list in golang
+
+http://l3x.github.io/golang-code-examples/2014/07/23/doubly-linked-list.html
+
+using inbuilt package "container/list" for more information use below link:
+https://golang.org/pkg/container/list/#New
+
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+******
+vim-go
+******
+
+For vim-go you should have Vim 7.2.051 or above.
+
+source:
+http://muthukadan.net/article/golang-vim.html
+https://github.com/fatih/vim-go
+
+http://0value.com/my-Go-centric-Vim-setup
+
+http://mirnazim.org/writings/vim-plugins-i-use/
+
+[1]. first install vim plugin using
+https://github.com/junegunn/vim-plug
+
+you will see "autoload" directory in ~/.vim/
+
+[2]. add script in ~/.vimrc file from http://muthukadan.net/article/golang-vim.html
+
+############################################################################
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'fatih/vim-go'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+
+call plug#end()
+
+nmap <F2> :NERDTreeToggle<CR>
+au FileType go nmap <F8> :TagbarToggle<CR>
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>i <Plug>(go-info)
+let g:go_fmt_command = "goimports"
+##########################################################################
+After that execute vimrc file and again open vimrc file
+and type :PlugInstall
+
+it will install require plugin for vim-go
+
+now you will see "ftplugin" and "plugged" directory in ~/.vim/
+
+[3]. then install GoInstallBinaries (from 2nd url) by typing :GoInstallBinaries  in
+vimrc file
+
+If you invoke it, all necessary binaries will be automatically downloaded and
+installed to your $GOBIN environment (if not set it will use $GOPATH/bin).
+
+You are almost done :)
+
+[4]. For all shortcut key for vim-go you can refer
+http://muthukadan.net/article/golang-vim.html
+
+Short-cuts:
+    To jump to the definition: gd
+    To autocomplete: Ctrl+x+o
+    To see doc: \gd
+    To see type info: \i
+    To see the documentation: :help vim-go
+    To change leader key: :help <Leader>
+    To get help about a particular operation: :help :GoDoc
+
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+
+
+*****************************************************************
+=======
+Package:
+=======
+
+* Every go programme should start with package.
+
+* One directory should contain only one package. but we can have multiple
+  directory. Inside one directory multople directory can contain different
+  different package. Means one folder should contain *only one* package.
+
+* Package name and directory name (folder name) can be different. But while
+  importing we need to import with directory name and while calling particular
+  function of package we need to call with package_name.function name()
+
+  P.S.: Its better to use package name and directory name same.
+
+*****************************************************************
+
+
+
+
+******************************************************************
+.................................................................
+Why golang is ugly:
+http://www.quora.com/Do-you-feel-that-golang-is-ugly/answer/Tikhon-Jelvis
+.................................................................
+*****************************************************************
+
+
+
+======================================================================
+======================================================================
+etcd
+====
+about all configuration flag's
+https://coreos.com/etcd/docs/2.0.8/configuration.html
+
+http://accelazh.github.io/consensus/Play-with-Etcd/
+
+http://devo.ps/blog/zookeeper-vs-doozer-vs-etcd/
+
+
+https://www.compose.io/articles/etcd-introduced/
+
+https://chromium.googlesource.com/external/github.com/coreos/etcd/+/HEAD/Documentation/api.md
+
+http://www.activestate.com/blog/2014/03/brandon-philips-explains-etcd
+
+------------------------------------------------------------------------
+Setting etcd in two node cluster
+
+On Node 1:
+
+1. export MYIP=<local IP>
+2. delete all old etcd configuration (rm -rf default.etcd)
+3. Bring up etcd using 
+etcd -listen-client-urls http://$MYIP:2379 -advertise-client-urls http://$MYIP:2379 -listen-peer-urls http://$MYIP:2380 -initial-advertise-peer-urls http://$MYIP:2380 --initial-cluster default=http://$MYIP:2380 &
+4. Add the member by 
+etcdctl -C http://$MYIP:2379 member add <name> http://<peer-ip>:2380
+This would give few env variables in return like:
+
+ETCD_NAME="GD2"
+ETCD_INITIAL_CLUSTER="GD2=http://172.17.0.3:2380,default=http://172.17.0.2:2380"
+ETCD_INITIAL_CLUSTER_STATE="existing"
+
+5. On Node 2, export the above variables
+6. kill etcd instance and restart with etcd -listen-client-urls http://$MYIP:2379 -advertise-client-urls http://$MYIP:2379 -listen-peer-urls http://$MYIP:2380 -initial-advertise-peer-urls http://$MYIP:2380 &
+
+That should set up a basic two node etcd cluster
+
+The above set up was done in a two node cluster.
+
+-----------------------------------------------------------------------------
+
+etcd starting and configuring script:
+
+https://github.com/radiomix/jenkins-ami/blob/bade03995cf46a415bf00abdca83c77aa4ac0a08/install/etcd.sh
+
+
