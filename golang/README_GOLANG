@@ -99,6 +99,10 @@ https://golang.org/pkg/container/list/#New
 vim-go
 ******
 
+you can also follow https://unknwon.io/setup-vim-for-go-development/
+
+or
+
 For vim-go you should have Vim 7.2.051 or above.
 
 source:
@@ -140,7 +144,7 @@ it will install require plugin for vim-go
 
 now you will see "ftplugin" and "plugged" directory in ~/.vim/
 
-[3]. then install GoInstallBinaries (from 2nd url) by typing :GoInstallBinaries  in
+[3]. then install GoInstallBinaries (from 2nd url  https://github.com/fatih/vim-go) by typing :GoInstallBinaries  in
 vimrc file
 
 If you invoke it, all necessary binaries will be automatically downloaded and
